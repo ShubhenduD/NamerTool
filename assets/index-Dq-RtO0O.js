@@ -83,7 +83,7 @@ Please change the parent <Route path="${A}"> to <Route path="${A==="/"?"*":`${A}
  * LICENSE.md file in the root directory of this source tree.
  *
  * @license MIT
- */function G2(n){return O.createElement(r2,{flushSync:av.flushSync,...n})}function Z2(){const n=z2([{path:"/",element:Q.jsx($T,{})}]);return Q.jsx(H_,{children:Q.jsx(G2,{router:n})})}var Rf={exports:{}};/*!
+ */function G2(n){return O.createElement(r2,{flushSync:av.flushSync,...n})}function Z2(){const n=z2([{path:"/NamerTool/",element:Q.jsx($T,{})}]);return Q.jsx(H_,{children:Q.jsx(G2,{router:n})})}var Rf={exports:{}};/*!
   * Bootstrap v5.3.6 (https://getbootstrap.com/)
   * Copyright 2011-2025 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
