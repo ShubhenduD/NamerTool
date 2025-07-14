@@ -7,13 +7,13 @@ import CustomContext from './contexts/CustomContext'
 
 function App() {
 
-  const router = createBrowserRouter([
-    { path: "/NamerTool/", element: <Home /> }
-  ]);
+  // const router = createBrowserRouter([
+  //   { path: "/NamerTool/", element: <Home /> }
+  // ]);
 
   return (
     <CustomContext>
-      <RouterProvider router={router} />
+      <Home />
     </CustomContext>
   )
 }
