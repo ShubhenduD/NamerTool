@@ -8,7 +8,7 @@ import CustomContext from './contexts/CustomContext'
 function App() {
 
   const router = createBrowserRouter([
-    { path: "/", element: <Home /> }
+    { path: "/NamerTool/", element: <Home /> }
   ]);
 
   return (
