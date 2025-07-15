@@ -87,10 +87,8 @@ const InterfaceForm = () => {
                     </tr>
                 </tbody>
             </table>
-            <div className="container d-flex flex-row">
-                <button type="reset" onClick={handleSave} className="btn btn-primary">Save Interface</button>
+            <button type="reset" onClick={handleSave} className="btn btn-primary" style={{width: "100%"}}>Save Interface</button>
                 {/* <button type="reset" onClick={resetHandler} className="btn btn-danger">Reset</button> */}
-            </div>
         </form>
         
     )

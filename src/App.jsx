@@ -13,7 +13,7 @@ function App() {
 
   return (
     <CustomContext>
-      <Home />
+      <Home/>
     </CustomContext>
   )
 }

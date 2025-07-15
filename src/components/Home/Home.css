@@ -1,6 +1,5 @@
-h1, h2 {
+h1, h3 {
       text-align: center;
-      color: #2c3e50;
     }
 
 #dropdownBtn{
@@ -12,3 +11,9 @@ h1, h2 {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
+
+.gradient-overlay {
+    position: relative;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg,rgba(53, 94, 196, 0.8) 0%, rgba(23, 130, 118, 0.8) 100%);
+  }

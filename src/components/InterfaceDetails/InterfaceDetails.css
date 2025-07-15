@@ -10,10 +10,6 @@ table {
       padding: 12px;
       border: 1px solid #e0e0e0;
     }
-    th {
-      background-color: #e8f0fe;
-      font-weight: bold;
-    }
     select, input {
       width: 100%;
       padding: 8px;

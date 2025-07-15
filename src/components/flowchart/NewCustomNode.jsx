@@ -9,7 +9,7 @@ const NewCustomNode = ({data}) => {
           border: '1px solid #bbb',
           borderRadius: 10,
           position: 'relative',
-          backgroundColor: '#e1e6fc',
+          backgroundColor: '#dbceb2ff',
           minWidth: 120,
           height: `${data.height}px`,
           textAlign: 'center',
@@ -27,13 +27,9 @@ const NewCustomNode = ({data}) => {
               {data.destinationIds.map((destinationId, i) =>
                 <Handle type="source" position={Position.Right} id={destinationId} key={i} style={{position:"absolute",top:`${150*(i)+50}px`}}/>
               )}
-              
             </>
-          }
-          
-          
-          <strong>{data.label}</strong>
-            
+          } 
+          <strong>{data.label}</strong>  
         </div>
     );
 

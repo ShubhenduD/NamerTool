@@ -154,14 +154,14 @@ const NewCustomFlowChart = () => {
   
  
   return (
-    <div style={{ height: 500 }}>
+    <div style={{ height: 500 }} className='mb-2'>
       <ReactFlow
         nodes={nodes}
         edges={edges}
         nodeTypes={{ customNode: NewCustomNode }}
         edgeTypes={{ customEdge: NewCustomEdge }}
         fitView
-        style={{background: '#d2f5fa',}}
+        style={{background: '#96b7c0d7',}}
       >
         {console.log(uniqueNodes)}
         <Background />
