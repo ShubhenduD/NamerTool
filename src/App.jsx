@@ -11,10 +11,14 @@ function App() {
       element: <Navbar />,
       children: [
         {index: true, element: <Home />},
-        {path: "/ArchAndNaming", element: <ArchAndNaming />}
-      ]
+        {path: "ArchAndNaming", element: <ArchAndNaming />}
+      ],
     }
-  ]);
+  ],
+  {
+    basename: '/NamerTool/'      
+  }
+);
 
   return (
     <CustomContext>
