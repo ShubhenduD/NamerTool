@@ -1,19 +1,24 @@
-import { Children, useState } from 'react'
-import './App.css'
-import { Home } from './components/Home/Home'
-
+import { ArchAndNaming } from './components/ArchAndNaming/ArchAndNaming'
+import Home from './components/Home/Home'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import CustomContext from './contexts/CustomContext'
-
+import { Navbar } from './components/Navbar/Navbar'
 function App() {
 
-  // const router = createBrowserRouter([
-  //   { path: "/NamerTool/", element: <Home /> }
-  // ]);
+  const router = createBrowserRouter([
+    { 
+      path: "/", 
+      element: <Navbar />,
+      children: [
+        {index: true, element: <Home />},
+        {path: "/ArchAndNaming", element: <ArchAndNaming />}
+      ]
+    }
+  ]);
 
   return (
     <CustomContext>
-      <Home/>
+      <RouterProvider router={router}/>
     </CustomContext>
   )
 }
