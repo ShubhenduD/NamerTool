@@ -14,10 +14,7 @@ function App() {
         {path: "ArchAndNaming", element: <ArchAndNaming />}
       ],
     }
-  ],
-  {
-    basename: '/NamerTool/'      
-  }
+  ]
 );
 
   return (
