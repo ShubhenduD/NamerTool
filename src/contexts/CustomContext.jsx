@@ -33,11 +33,10 @@ const CustomContext = ({children}) => {
     }
 
     const connections = [
-        "--Select--", "New", "Existing", "Decomm", "Update"
+        "New", "Existing", "Decomm", "Update"
     ]
 
     const ministries = [
-        "--Select--",
         "AHLIB","AHNAT","AHNATBAT","AHMKTBAT","AHRTHE","ALBIR","ALBIRBAT","ALMKTBAT","ALMOB","ALMOBBAT",
         "DCWAS","DCWASBAT","FLJAC","FLJACBAT","FLPEN","FLPENBAT","FLMKTBAT",
         "GCMKT","ININD","ININDBAT","INMKTBAT","ILARL","ILARLBAT","ILMKTBAT",
@@ -49,9 +48,11 @@ const CustomContext = ({children}) => {
         "TXMKTBAT","TXWAC","TXWACBAT","WIAPP","WIAPPBAT","WIGLE","WIGLEBAT",
         "WIMIL","WIMILBAT","WIMKT","WIMKTBAT"];
 
-    const messageType = ["ADT","ADT1PID","ADT2PID","BAR","DFT","File","FilePDF","MDM","MFN","ORM","ORU","OSU","OQY","PPR","RAS","RDE","RDS","RGV","SIU","VXU"];
+    const messageType = ["ADT","BAR","DFT","File","FilePDF","MDM","MFN","ORM","ORU","OSU","OQY","PPR","RAS","RDE","RDS","RGV","SIU","VXU"];
 
-    const yesNo = ["--Select--","Yes","No"];
+    const dtlMessageType = ["ADT","ADT1PID","ADT2PID","BAR","DFT","File","FilePDF","MDM","MFN","ORM","ORU","OSU","OQY","PPR","RAS","RDE","RDS","RGV","SIU","VXU"];
+
+    const yesNo = ["Yes","No"];
 
     const [showFlowChart, setShowFlowChart] = useState(false);
 

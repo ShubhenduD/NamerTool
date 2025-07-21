@@ -1,15 +1,4 @@
-table {
-      width: 100%;
-      margin-bottom: 20px;
-      border-collapse: collapse;
-      background-color: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      border-radius: 10px;
-    }
-    th, td {
-      padding: 12px;
-      border: 1px solid #e0e0e0;
-    }
+
     select, input {
       width: 100%;
       padding: 8px;
@@ -17,4 +6,13 @@ table {
       border: 1px solid #ccc;
       box-sizing: border-box;
     }
+
+.interfaceForm {
+  background: rgba(255, 255, 255, 1); /* White, 85% opaque */
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 2rem;
+  /* Optional: add a subtle border */
+  border: 1px solid rgba(0,0,0,0.07);
+}
     

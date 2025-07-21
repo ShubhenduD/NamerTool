@@ -94,12 +94,12 @@ const SourceTableComponent = ({components}) => {
                     </tr>
                 }
                 {
-                    components.isDTLNeeded === "Yes" &&
+                    components.isDTLNeeded === "Yes" && (components.sourceMinistry === components.destinationMinistry) &&
                     <tr>
                         <td>Transform</td>
                             <td>
                                 {
-                                    (components.sourceDTLMessageType === components.destinationDTLMessageType) && (components.sourceDTLMessageType!== "")
+                                    (components.sourceDTLMessageType!== "") && (components.sourceDTLMessageType === components.destinationDTLMessageType)
                                     ? 
                                         components.isDTLShared === "Yes" 
                                         ?

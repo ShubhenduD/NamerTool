@@ -65,13 +65,13 @@ const DestinationTableComponent = ({components}) => {
                         <td>Transform</td>
                             <td>
                                 {
-                                    (components.sourceDTLMessageType === components.destinationDTLMessageType) && (components.sourceDTLMessageType!== "" && components.sourceDTLMessageType !== "")
+                                    (components.sourceDTLMessageType!== "" && components.destinationDTLMessageType !== "") && (components.sourceDTLMessageType === components.destinationDTLMessageType)
                                     ? 
                                         components.isDTLShared === "Yes" 
                                         ?
-                                            `AH.${components.sourceMinistry}.Transforms.${components.sourceApplication}To${components.destinationApplication}${components.sourceDTLMessageType}Shared`
-                                            : `AH.${components.sourceMinistry}.Transforms.${components.sourceApplication}To${components.destinationApplication}${components.sourceDTLMessageType}`
-                                    : `AH.${components.sourceMinistry}.Transforms.${components.sourceApplication}${components.sourceDTLMessageType}To${components.destinationApplication}${components.destinationDTLMessageType}`
+                                            `AH.${components.destinationMinistry}.Transforms.${components.sourceApplication}To${components.destinationApplication}${components.destinationDTLMessageType}Shared`
+                                            : `AH.${components.destinationMinistry}.Transforms.${components.sourceApplication}To${components.destinationApplication}${components.destinationDTLMessageType}`
+                                    : `AH.${components.destinationMinistry}.Transforms.${components.sourceApplication}${components.destinationDTLMessageType}To${components.destinationApplication}${components.destinationDTLMessageType}`
                                 }
                             </td>
                     </tr>

@@ -50,7 +50,7 @@ useEffect(() => {
         id='dropdown-btn'
         onClick={toggleDropdown}
       >
-        {selectedOptions.length > 0 ? selectedOptions.join(', ') : '--Select--'}
+        {selectedOptions.length > 0 ? selectedOptions.join(', ') : props.placeholder}
       </div>
  
       {isOpen && (
