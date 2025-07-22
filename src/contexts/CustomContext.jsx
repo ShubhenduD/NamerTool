@@ -33,7 +33,7 @@ const CustomContext = ({children}) => {
     }
 
     const connections = [
-        "New", "Existing", "Decomm", "Update"
+        "New", "Existing", "Decomm"
     ]
 
     const ministries = [

@@ -14,8 +14,8 @@ const NewCustomFlowChart = () => {
   let sourceIds = [];
   let destinationIds = [];
   const {interfaces} = useValue();
-  let srcEdgeColor = "";
-  let dstEdgeColor = "";
+  let srcEdgeColor = "#FF0072";
+  let dstEdgeColor = "#FF0072";
 
   const addNode = (id, type, data, position) => {
     nodes.push({
@@ -52,13 +52,13 @@ const NewCustomFlowChart = () => {
   interfaces.map((item,i) => {
     const y = yOffset;
     yOffset += 150;
-    srcEdgeColor = item.isSourceExisting === "New" ? "#FF0072" : 
-                   item.isSourceExisting === "Existing" ? "#07fa02" : "#0905f5";
-    dstEdgeColor = item.isDestinationExisting === "New" ? "#FF0072" : 
-                   item.isDestinationExisting === "Existing" ? "#07fa02" : "#0905f5";
+    srcEdgeColor = item.isSourceExisting === "Existing" ? "#07fa02" : 
+                   item.isSourceExisting === "Decomm" ? "#0905f5" : "#FF0072";
+    dstEdgeColor = item.isDestinationExisting === "Existing" ? "#07fa02" : 
+                   item.isDestinationExisting === "Decomm" ? "#0905f5" : "#FF0072";
     let sourceId = `src-${item.sourceApplication}-${i}`
     let destinationId = `dst-${item.destinationApplication}-${i}`
-    let sourceMinistryId = `sm-${item.sourceMinistry}}`
+    let sourceMinistryId = `sm-${item.sourceMinistry}`
     let destinationMinistryId = item.sourceMinistry !== item.destinationMinistry ? `dm-${item.destinationMinistry}`:null
 
     //Nodes Section

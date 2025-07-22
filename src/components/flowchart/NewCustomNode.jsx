@@ -29,7 +29,7 @@ const NewCustomNode = ({data}) => {
               )}
             </>
           } 
-          <strong>{data.label}</strong>  
+          <strong >{data.label}</strong>  
         </div>
     );
 

@@ -1,13 +1,15 @@
-import { useValue } from "../../contexts/CustomContext";
 import './InterfaceDetails.css';
 
 const DestinationTableComponent = ({components}) => {
-    //const {components} = useValue()
-    const serviceName = components.destinationDifferentiator == ""
-                        ?`${components.destinationMinistry}_in_${components.sourceApplication}_${components.sourceMessageType}_from${components.sourceMinistry}`
-                        :`${components.sourceMinistry}_in_${components.sourceApplication}_${components.sourceMessageType}_${components.sourceDifferentiator}`
+    const sourceMinistry = components.sourceMinistry === "Source Ministry" ? "" : components.sourceMinistry;
+    const destinationMinistry = components.destinationMinistry === "Destination Ministry" ? "" : components.destinationMinistry;
+    const destinationMessageType = components.isDTLNeeded === "Yes" ? components.destinationDTLMessageType : components.destinationMessageType
 
-    const masterRuleName = `AH.${components.destinationMinistry}.Rules.${components.sourceMinistry}in${components.sourceApplication}${components.sourceMessageType}${components.sourceDifferentiator}`
+    const serviceName = components.destinationDifferentiator == ""
+                        ?`${destinationMinistry}_in_${components.sourceApplication}_${destinationMessageType}_from${components.sourceMinistry}`
+                        :`${destinationMinistry}_in_${components.sourceApplication}_${destinationMessageType}_from${components.sourceMinistry}_${components.destinationDifferentiator}`
+
+    const masterRuleName = `AH.${destinationMinistry}.Rules.${destinationMinistry}in${components.sourceApplication}${destinationMessageType}from${components.sourceMinistry}`
     return(
         <table className="container table table-striped overflow-scroll">
                 <thead>
@@ -38,7 +40,7 @@ const DestinationTableComponent = ({components}) => {
                     </tr>
                     <tr>
                         <td>Rule Name</td>
-                        <td>{components.destinationDTLMessageType} to {components.destinationApplication}</td>
+                        <td>{destinationMessageType} to {components.destinationApplication}</td>
                     </tr>
                     {
                         components.isDelegateNeeded === "Yes" &&
@@ -54,8 +56,8 @@ const DestinationTableComponent = ({components}) => {
                     <td>
                         {
                             components.destinationDifferentiator == ""
-                            ?`${components.destinationMinistry}_out_${components.destinationApplication}_${components.destinationMessageType}`
-                            :`${components.destinationMinistry}_out_${components.destinationApplication}_${components.destinationMessageType}_${components.destinationDifferentiator}`
+                            ?`${components.destinationMinistry}_out_${components.destinationApplication}_${destinationMessageType}`
+                            :`${components.destinationMinistry}_out_${components.destinationApplication}_${destinationMessageType}_${components.destinationDifferentiator}`
                         }
                     </td>
                 </tr>

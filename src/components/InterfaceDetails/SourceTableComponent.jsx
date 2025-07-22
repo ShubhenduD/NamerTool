@@ -3,11 +3,14 @@ import './InterfaceDetails.css';
 
 const SourceTableComponent = ({components}) => {
 
-    const serviceName = components.sourceDifferentiator == ""
-                        ?`${components.sourceMinistry}_in_${components.sourceApplication}_${components.sourceMessageType}`
-                        :`${components.sourceMinistry}_in_${components.sourceApplication}_${components.sourceMessageType}_${components.sourceDifferentiator}`
+    const sourceMinistry = components.sourceMinistry === "Source Ministry" ? "" : components.sourceMinistry;
+    const destinationMinistry = components.destinationMinistry === "Destination Ministry" ? "" : components.destinationMinistry;
 
-    const masterRuleName = `AH.${components.sourceMinistry}.Rules.${components.sourceMinistry}in${components.sourceApplication}${components.sourceMessageType}${components.sourceDifferentiator}`
+    const serviceName = components.sourceDifferentiator == ""
+                        ?`${sourceMinistry}_in_${components.sourceApplication}_${components.sourceMessageType}`
+                        :`${sourceMinistry}_in_${components.sourceApplication}_${components.sourceMessageType}_${components.sourceDifferentiator}`
+
+    const masterRuleName = `AH.${sourceMinistry}.Rules.${sourceMinistry}in${components.sourceApplication}${components.sourceMessageType}${components.sourceDifferentiator}`
 
     return(
         <table className="container table table-striped overflow-scroll">
@@ -19,7 +22,7 @@ const SourceTableComponent = ({components}) => {
                 </thead>
                 <tbody>
                 {
-                    (components.sourceApplication !== "" || components.sourceMinistry !== "") &&
+                    (components.sourceApplication !== "" || sourceMinistry !== "") &&
                     <>
                         <tr>
                             <td>Service</td>
@@ -34,28 +37,28 @@ const SourceTableComponent = ({components}) => {
                             </td>
                         </tr>
                         <tr>
-                        <td>Business Rule Name</td>
-                        <td>{masterRuleName}</td>
+                            <td>Business Rule Name</td>
+                            <td>{masterRuleName}</td>
                         </tr>
                         <tr>
-                        <td>Rule Name</td>
-                        <td>
-                            {
-                                components.sourceMinistry !== components.destinationMinistry 
-                                ?
-                                    components.isDTLNeeded === "Yes" 
+                            <td>Rule Name</td>
+                            <td>
+                                {
+                                    sourceMinistry !== destinationMinistry
                                     ?
-                                    `${components.destinationDTLMessageType} to ${components.destinationMinistry}` 
+                                        components.isDTLNeeded === "Yes" 
+                                        ?
+                                        `${components.destinationDTLMessageType} to ${destinationMinistry}` 
+                                        :
+                                        `${components.destinationMessageType} to ${destinationMinistry}` 
                                     :
-                                    `${components.destinationMessageType} to ${components.destinationMinistry}` 
-                                :
-                                    components.isDTLNeeded === "Yes" 
-                                    ?
-                                    `${components.destinationDTLMessageType} to ${components.destinationApplication}` 
-                                    :
-                                    `${components.destinationMessageType} to ${components.destinationApplication}`
-                            }
-                        </td>
+                                        components.isDTLNeeded === "Yes" 
+                                        ?
+                                        `${components.destinationDTLMessageType} to ${components.destinationApplication}` 
+                                        :
+                                        `${components.destinationMessageType} to ${components.destinationApplication}`
+                                }
+                            </td>
                         </tr>
                         {
                             components.isDelegateNeeded === "Yes" &&
@@ -63,9 +66,9 @@ const SourceTableComponent = ({components}) => {
                                 <td>Delegate Rule</td>
                                 <td>
                                 {
-                                    components.sourceMinistry !== components.destinationMinistry 
+                                    sourceMinistry !== destinationMinistry
                                     ?
-                                        `${masterRuleName}Delegate${components.destinationMinistry}${components.destinationDifferentiator}`
+                                        `${masterRuleName}Delegate${destinationMinistry}${components.destinationDifferentiator}`
                                     :
                                         `${masterRuleName}Delegate${components.destinationApplication}${components.destinationDifferentiator}`
                                 }
@@ -75,20 +78,28 @@ const SourceTableComponent = ({components}) => {
                     </>
                 }
                 {
-                    (components.destinationApplication !== "" || components.destinationMinistry !== "") &&
+                    (components.destinationApplication !== "" || destinationMinistry !== "") &&
                     <tr>
                         <td>Operation</td>
                         <td>
                             {
-                                components.sourceMinistry !== components.destinationMinistry 
+                                sourceMinistry !== destinationMinistry 
                                 ?
                                     components.destinationDifferentiator == ""
-                                    ?`${components.sourceMinistry}_out_${components.destinationMinistry}_${components.destinationDTLMessageType}`
-                                    :`${components.destinationMinistry}_out_${components.destinationApplication}_${components.destinationMessageType}_${components.destinationDifferentiator}`
+                                    ? components.isDTLNeeded === "Yes"
+                                        ? `${sourceMinistry}_out_${destinationMinistry}_${components.destinationDTLMessageType}`
+                                        : `${sourceMinistry}_out_${destinationMinistry}_${components.destinationMessageType}`
+                                    : components.isDTLNeeded === "Yes"
+                                        ? `${sourceMinistry}_out_${destinationMinistry}_${components.destinationDTLMessageType}_${components.destinationDifferentiator}`
+                                        : `${sourceMinistry}_out_${destinationMinistry}_${components.destinationMessageType}_${components.destinationDifferentiator}`
                                 :
                                     components.destinationDifferentiator == ""
-                                    ?`${components.sourceMinistry}_out_${components.destinationApplication}_${components.destinationMessageType}`
-                                    :`${components.sourceMinistry}_out_${components.destinationApplication}_${components.destinationMessageType}_${components.destinationDifferentiator}`    
+                                    ? components.isDTLNeeded === "Yes"
+                                        ? `${sourceMinistry}_out_${components.destinationApplication}_${components.destinationDTLMessageType}`
+                                        : `${sourceMinistry}_out_${components.destinationApplication}_${components.destinationMessageType}`
+                                    : components.isDTLNeeded === "Yes"
+                                        ? `${sourceMinistry}_out_${components.destinationApplication}_${components.destinationDTLMessageType}_${components.destinationDifferentiator}`
+                                        : `${sourceMinistry}_out_${components.destinationApplication}_${components.destinationMessageType}_${components.destinationDifferentiator}`
                             }
                         </td>
                     </tr>
